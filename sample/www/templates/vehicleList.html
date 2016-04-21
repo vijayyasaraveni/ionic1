@@ -1,0 +1,48 @@
+<ion-view >
+    
+    <ion-nav-bar class="bar-positive" align-title="center">    
+         <ion-nav-title>
+        Create Trip: 2/4- Select a Vehicle
+        </ion-nav-title>
+        
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    
+    
+    <ion-content>
+        
+        <div style="margin-top: 30px;">
+            
+            <div class="col">
+                <b style="    position: relative;  left: 9px; font-size: 16px;">Available Vehicles (4)</B>
+                <img src="images/plus-5-xxl.png" class="plue plusButton" ng-click="addVehicle()">
+            </div>
+            
+            
+            <div class="card">
+                <div class="item item-text-wrap" style="height: 95px;
+        padding: 26px;">
+                No vehicles found.
+                <span style="display:block;">Please add a new vehicle first.</span>
+                </div>
+            </div>
+            
+            
+        </div>
+        
+        
+        
+        
+        
+    </ion-content>
+    
+    
+    <div class="bar bar-footer bar-stable" style="text-align:center;">
+        <button class="button  button-block button-clear nextButton " ng-click="addVehicle()">
+            Add new Vehicle
+        </button>
+    </div>
+    
+    
+</ion-view>

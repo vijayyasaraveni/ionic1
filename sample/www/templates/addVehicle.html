@@ -1,0 +1,87 @@
+<ion-view >
+    
+    <ion-nav-bar class="bar-positive" align-title="center">    
+         <ion-nav-title>
+        Add Vehicle Details
+        </ion-nav-title>
+        
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    
+    <ion-content>
+        
+        <div class="content">
+            
+             <div class="row">
+  <div class="col">
+ <h4>Add vehicle details</h4></div></div>
+ 
+ 
+ <div class="row">
+  <div class="col col-50">
+  <h5>Enter Vehicle number*</h5>
+  <label class="item item-input" style="padding: 0px 0 4px 6px;">
+    <input type="text" placeholder="KA 02 EM 1592">
+  </label>
+  
+  </div>
+  </div>
+  
+  
+  
+   <div class="row">
+  <div class="col">
+  <h5>Vendor Name</h5>
+  <label class="item item-input" style="padding: 0px 0 4px 6px;">
+    <input type="text" placeholder="VRL logistics">
+  </label>
+  
+  </div>
+  </div>
+  
+    <div class="row">
+  <div class="col">
+  <h5> Vehicle type</h5>
+ <button class="button button-small" style="    width: 66px;
+    height: 37px;">
+      Truck
+    </button><button class="button button-small" style="    width: 66px;
+    height: 37px;     background-color: #CED1D4;">
+      Tempo
+    </button>
+  
+  </div>
+  </div>
+  
+  <div>
+  <h5>Vehicle capacity (ton)</h5>
+  </div>
+  <div class="row">
+        <div class="col-20">
+             <label class="item item-input" style="padding: 0px 0 0px 0px;">
+                <input type="text" >
+            </label>
+        </div>
+        <div class="col-80">
+            <div class="range range-positive" >
+                <i class="icon ion-ios7-sunny-outline"></i>
+                <input type="range" min="0" max="9" value="{{user.min}}"  ng-model="user.value">  
+                <i class="icon ion-ios7-sunny"></i>
+            </div>    
+            
+        </div>     
+  </div>
+        
+        
+        
+        
+    </ion-content>
+    
+    <!--<div class="bar bar-footer bar-stable" style="text-align:center;">
+        <button class="button  button-block button-clear nextButton " ng-click="addVehicle()">
+            Save & Select Vehicle >
+        </button>
+    </div>
+    -->
+</ion-view>

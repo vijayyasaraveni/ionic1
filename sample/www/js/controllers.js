@@ -11,7 +11,21 @@ angular.module('starter.controllers', [])
 
 .controller('createTripController', function($scope, $state, $location){
   
-  alert("i am here");
+  $scope.nextButtonClick = function(){
+    $state.go('selectVehicle');
+  }
+  
+})
+
+.controller('vehicleListController', function($scope, $state, $location){
+  
+  $scope.addVehicle = function(){
+    $state.go('addVehicle');
+  }
+  
+})
+
+.controller('addVehicleController', function($scope, $state, $location){
   
 })
 

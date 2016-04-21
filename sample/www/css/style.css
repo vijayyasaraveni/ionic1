@@ -5,3 +5,24 @@
     text-align: center;
         margin-top: 85px;
 }
+
+.nextButton{
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+
+.plusButton{
+    width: 23px;
+    position: relative;
+    float: right;
+    left: -31px;
+}
+
+.sliderInput{
+    border: 1px !important;
+    background: transparent;
+    /*border-bottom: 2px solid black;*/
+    width: 20px;
+}
+
+

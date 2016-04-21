@@ -41,6 +41,18 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ui.router'])
     url : '/createTrip',
     templateUrl : 'templates/createTrip.html',
     controller: 'createTripController'
+  })
+  
+  .state('selectVehicle', {
+    url : '/selectVehicle',
+    templateUrl : 'templates/vehicleList.html',
+    controller : 'vehicleListController'
+  })
+  
+  .state('addVehicle', {
+    url : '/addVehicle',
+    templateUrl: 'templates/addVehicle.html',
+    controller : 'addVehicleController'
   });
  
   // if none of the above states are matched, use this as the fallback
