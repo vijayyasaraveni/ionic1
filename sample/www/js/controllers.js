@@ -7,9 +7,55 @@ angular.module('starter.controllers', [])
     $state.go('createTrip');
   }
   
+  $scope.recieveDevices = function(){
+    $state.go('recieveDevices');
+  }
+  
+  $scope.liveTrips = function(){
+    $state.go('liveTrips');
+  }
+  
+  $scope.manageDevices = function(){
+    $state.go('browseDevices');
+  }
+  
+  $scope.browseRoutes = function(){
+    $state.go('browseRoutes');
+  }
+  
+  $scope.browseVehicles = function(){
+    $state.go('browseVehicles');
+  }
+  
+  
 })
 
-.controller('createTripController', function($scope, $state, $location){
+.controller('createTripController', function($scope, $state, $location, $ionicLoading, routeListService){
+  
+  console.log("i am here");
+
+  $scope.routes = [];
+  $scope.routesCount = 0;
+  
+  loadRemoteData();
+
+
+  function loadRemoteData() {
+                    // The friendService returns a promise.
+                    $ionicLoading.show();
+                    routeListService.getRouteList().then(
+                            function( response ) {
+                              console.log("response from >>> "+response);
+                                applyRemoteData( response );
+                                $ionicLoading.hide();
+                            });
+                }
+
+  function applyRemoteData( response ) {
+
+      $scope.routesCount = response.RoutesCount;
+      $scope.routes = response.Routes;
+}
   
   $scope.nextButtonClick = function(){
     $state.go('selectVehicle');
@@ -17,7 +63,25 @@ angular.module('starter.controllers', [])
   
 })
 
-.controller('vehicleListController', function($scope, $state, $location){
+.controller('vehicleListController', function($scope, $state, $location,$http, $ionicLoading, vehicleService){
+  
+  $scope.vehicles = [];
+  $scope.vehiclesCount = 0;
+
+  getVehicleList();
+
+  function getVehicleList() {
+    $ionicLoading.show();
+    vehicleService.getVehicleList().then(
+      function( response ) {
+          console.log("response from >>> "+response);
+          $scope.vehicles = response.Vechicles;
+          // $scope.vehiclesCount = $scope.vehicles.length;
+          $ionicLoading.hide();
+      });
+  }
+  
+  
   
   $scope.addVehicle = function(){
     $state.go('addVehicle');
@@ -26,9 +90,68 @@ angular.module('starter.controllers', [])
 })
 
 .controller('addVehicleController', function($scope, $state, $location){
+  $scope.addVehicle = function(){
+      $state.go('deviceList');
+  }
+})
+
+.controller('deviceListController', function($state, $location, $scope){
+  $scope.nextButtonClick = function(){
+    $state.go('tripDetails');
+  }
+})
+
+.controller('tripDetailsController', function($state, $location, $scope){
+  $scope.createTrip = function(){
+    $state.go('home');
+  }
+})
+
+.controller('recieveDevicesController', function($scope, $state, $location){
+  $scope.recieveDevices = function(){
+    $state.go('home');
+  }
+})
+
+
+.controller('liveTripsController', function($scope, $state, $location){
+  $scope.tripDetails = function(){
+    $state.go('tripDetails');
+  }
+})
+
+.controller('browseDevicesController', function($state, $location, $scope){
   
 })
 
+.controller('browseRoutesController', function($state, $location, $scope, $http){
+  
+   var req = {
+    method: 'POST',
+    url: 'http://myplug.in/lex2/api.php?action=RoutesList',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    data: {  }
+}
+
+$http(req).then(function(response){
+  // success func
+  
+    console.log(JSON.stringify(response));
+    alert('success');
+  
+}
+, function(response){
+  alert('failed');
+  
+});
+  
+})
+
+.controller('browseVehiclesController', function($state, $scope, $location){
+  
+})
 
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {

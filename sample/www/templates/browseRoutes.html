@@ -1,0 +1,43 @@
+<ion-view >
+    
+    <ion-nav-bar class="bar-positive" align-title="center">    
+         <ion-nav-title>
+        <img src="images/image50.png" style="position: absolute;
+    margin-left: 20px;
+    width: 45px;
+    margin-top: 2px;
+    margin-left: 25px;"> Browse Routes
+        </ion-nav-title>
+        
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    
+    
+    <ion-content>
+        
+       
+   
+ 
+ <div class="list">
+
+  <div class="item item">
+    <b>Available routes (3)</B>
+  </div>
+
+  <ion-list >
+        <ion-item ng-repeat="item in myData">
+          {{ item.Name }}
+        </ion-item>
+
+      </ion-list>
+  
+  
+  
+
+</div>
+        
+        
+    </ion-content>
+    
+</ion-view>

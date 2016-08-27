@@ -6,7 +6,7 @@
     <ion-nav-bar class="bar-positive" align-title="center">
         
         <ion-nav-title>
-      <!--Lex Mobile!-->
+      Lex Mobile!
     </ion-nav-title>
     
     <ion-nav-back-button>
@@ -71,7 +71,7 @@
 </button>
 	</a><br><br>
 	<a href="#">
-	<button class="button  button-stable" style="width:200px;">
+	<button class="button  button-stable" style="width:200px;" ng-click="recieveDevices()">
   Receive devices
 </button>
 	
@@ -83,7 +83,7 @@
 	<div class="row">
   <div class="col">
   
-	<button  class="button  button-stable" >
+	<button  class="button  button-stable" ng-click="liveTrips()" >
 	<img src="images/image40.png" width="54px;" style="position: relative;
     top: 18px;
     left: -10px;">
@@ -99,7 +99,7 @@
 
   
   <div class="col">
-  <button class="button  button-stable">
+  <button class="button  button-stable" ng-click="browseVehicles()">
   <img src="images/image36.png"  width="26px;" style="position: relative;
     top: 18px;
     left: -10px;">
@@ -124,7 +124,7 @@
   
    
   
-	<button  class="button  button-stable">
+	<button  class="button  button-stable" ng-click="manageDevices()">
 	<img src="images/image41.png" width="32px;" style="position: relative;
     top: 15px;
     left: -3px;">
@@ -147,8 +147,8 @@
 
   
   <div class="col">
-	<button  class="button  button-stable" style="
-            margin-left: -6px;
+	<button  ng-click="browseRoutes()" class="button  button-stable" style="
+margin-left: -6px;
     position: relative;
     left: 4px;
     top: 2px;

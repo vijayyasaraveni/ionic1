@@ -1,0 +1,76 @@
+<ion-view >
+    
+    <ion-nav-bar class="bar-positive" align-title="center">    
+         <ion-nav-title>
+        Receive Devices in Inventory
+        </ion-nav-title>
+        
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    
+    
+    <ion-content>
+       
+        
+       
+       
+ <style>
+ #op{
+  opacity: 0.2;
+ }
+ 
+ </style>
+ <br><br>
+ 
+  <div class="col">
+    <b style="
+    position: relative;
+    left: 11px;
+    font-size: 16px;
+  
+    line-height:4.0;">Available devices (3)</B>
+	 
+  </div>
+ 
+ <div class="list">
+
+    <a class="item item-avatar" href="#" >
+      <input type="checkbox" style="    position: absolute;
+    left: 18px;
+    width: 26px;
+    top: 11px;" checked>
+      <h2>ID: 123993BG (Trip ended)</h2>
+      <p style=" font-size: 12px;">EMEI # EUIMS90923423490</p>
+    </a>
+
+	 <a class="item item-avatar" href="#" >
+      <input type="checkbox" style="     position: absolute;
+    left: 18px;
+    width: 26px;
+    top: 11px;" checked>
+      <h2>ID: 252590BG (Trip ended)</h2>
+      <p style=" font-size: 12px;">EMEI # EUIMS90923423490</p>
+    </a>
+	 <a class="item item-avatar" href="#" id="op">
+      <input type="checkbox" style="     position: absolute;
+    left: 18px;
+    width: 26px;
+    top: 11px;">
+      <h2> ID: 234235BG (Faulty)</h2>
+      <p style=" font-size: 12px;">EMEI # EUIMS90923423490</p>
+    </a>
+
+</div>
+
+
+        
+        
+    </ion-content>
+    
+     <div class="bar bar-footer  bar-stable">
+  <div class="title" ng-click="recieveDevices()" >  Receive Device(s)</div>
+</div>
+    
+    
+</ion-view>

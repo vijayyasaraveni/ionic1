@@ -27,6 +27,15 @@
                 <span style="display:block;">Please add a new vehicle first.</span>
                 </div>
             </div>
+
+
+
+        <ion-list>
+            <ion-item ng-repeat="vehicle in vehicles">
+                <span>{{vehicle.VehicleRegistration}}</span>
+                {{vehicle.VendorName}}
+            </ion-item>
+        </ion-list>
             
             
         </div>

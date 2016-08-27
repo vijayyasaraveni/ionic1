@@ -1,4 +1,4 @@
-<ion-view >
+<ion-view ng-controller="createTripController">
 
 <ion-nav-bar class="bar-positive" align-title="center">
         
@@ -11,35 +11,36 @@
 </ion-nav-bar>
 
 
-<ion-content>
+<ion-content class="padding has-header">
+  
+<div class="card">
+  <div class="item">
+  <p>Available Routes ({{routes.length}})</p>
+</div>
+</div>
+
+  <ion-list>
+  <ion-item ng-repeat="route in routes">
+     {{route.RouteName}}
+  </ion-item>
+</ion-list>
     
-     <div class="list">
+     <!--<div class="list">
 
   <div class="item item">
-    <b>Available routes (3)</B>
+    <b>Available routes ({{ response.routesCount }})</B>
   </div>
 
-  <a class="item" href="#" style="font-size: 17px;
-">
-    Express Bangalore to Delhi
-	<p  id="small">6 Days, Total KMs: 2185kms</p>
-  </a>
+ <ion-list >
+        <ion-item ng-repeat="route in response.Routes">
+          {{route.RouteName }}
+        </ion-item>
 
-  
-  <a class="item" href="#"  style="font-size: 17px;">
-    Standard Bangalore to Delhi
-	<p id="small"> 9 Days, Total KMs: 2185kms</p>
-  </a>
-  
-  <a class="item" href="#"  style="font-size: 17px;">
-    Standard Bangalore to Mangalore
-	<p id="small"> 1 Days, Total KMs: 320 kms</p>
-  </a>
-  
+      </ion-list>
   
   
 
-</div>
+</div>-->
     
 </ion-content>
 

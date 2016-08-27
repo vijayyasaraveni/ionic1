@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'ui.router'])
+angular.module('starter', ['ionic', 'starter.controllers', 'ui.router', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -39,14 +39,57 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ui.router'])
   
   .state('createTrip', {
     url : '/createTrip',
-    templateUrl : 'templates/createTrip.html',
-    controller: 'createTripController'
+    templateUrl : 'templates/createTrip.html'
   })
   
   .state('selectVehicle', {
     url : '/selectVehicle',
     templateUrl : 'templates/vehicleList.html',
     controller : 'vehicleListController'
+  })
+  
+  .state('deviceList', {
+    url : '/deviceList',
+    templateUrl: 'templates/deviceList.html',
+    controller: 'deviceListController'
+  })
+  
+  .state('tripDetails', {
+    url : '/tripDetails',
+    templateUrl : 'templates/tripDetails.html',
+    controller : 'tripDetailsController' 
+  })
+  
+  .state('recieveDevices', {
+    url : '/recieveDevices',
+    templateUrl : 'templates/recieveDevices.html',
+    controller : 'recieveDevicesController'
+    
+  })
+  
+  .state('liveTrips', {
+    url : '/liveTrips',
+    templateUrl : 'templates/liveTrips.html',
+    controller : 'liveTripsController'
+  })
+  
+  
+  .state('browseDevices', {
+    url : '/browseDevices',
+    templateUrl : 'templates/browseDevices.html',
+    controller : 'browseDevicesController'
+  })
+  
+  .state('browseRoutes', {
+    url : '/browseRoutes',
+    templateUrl : 'templates/browseRoutes.html',
+    controller : 'browseRoutesController'
+  })
+  
+  .state('browseVehicles', {
+    url : '/browseVehicles',
+    templateUrl : 'templates/browseVehicles.html',
+    controller : 'browseVehiclesController'
   })
   
   .state('addVehicle', {
