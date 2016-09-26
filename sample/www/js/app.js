@@ -44,12 +44,14 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ui.router', 'starter
   
   .state('selectVehicle', {
     url : '/selectVehicle',
+    params : {'RouteId' : null},
     templateUrl : 'templates/vehicleList.html',
     controller : 'vehicleListController'
   })
   
   .state('deviceList', {
     url : '/deviceList',
+    params : {'routeId': null, 'vehicleId': null},
     templateUrl: 'templates/deviceList.html',
     controller: 'deviceListController'
   })

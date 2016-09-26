@@ -1,4 +1,58 @@
-<ion-view >
+
+<ion-view ng-controller="vehicleListController">
+
+    <ion-nav-bar class="bar-positive" align-title="center">    
+         <ion-nav-title>
+        Add Vehicle Details
+        </ion-nav-title>
+        
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+
+<ion-content class="padding has-header">
+  
+    <div class="card" ng-hide="vehicleListEmpty">
+        <div class="item item-text-wrap" style="height: 95px;padding: 26px;">
+            No vehicles found.
+            <span style="display:block;">Please add a new vehicle first.</span>
+        </div>
+    </div>
+
+    <ion-radio ng-repeat="vehicle in vehicles" ng-value="vehicle" ng-model="data.selectedVehicle">
+    {{ vehicle["1"] }}
+  </ion-radio>
+
+    <!--<ion-list>
+        <ion-item ng-repeat="vehicle in vehicles">
+
+            <ion-radio ng-model="choice" ng-value="'A'">
+                {{vehicle["1"]}}
+            </ion-radio>
+            
+        </ion-item>
+    </ion-list>-->
+
+</ion-content>
+
+<!--<div class="bar bar-footer bar-stable" style="text-align:center;">
+    <button class="button  button-block button-clear nextButton " ng-click="addVehicle()">
+        Add new Vehicle
+    </button>
+</div>-->
+
+<div class="bar bar-footer bar-stable" style="text-align:center;">
+    <button class="button  button-block button-clear nextButton " ng-click="addVehicle()">
+        Next >
+    </button>
+</div>
+
+</ion-view >
+
+
+
+
+<!--<ion-view >
     
     <ion-nav-bar class="bar-positive" align-title="center">    
          <ion-nav-title>
@@ -54,4 +108,4 @@
     </div>
     
     
-</ion-view>
+</ion-view>-->

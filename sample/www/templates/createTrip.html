@@ -2,50 +2,48 @@
 
 <ion-nav-bar class="bar-positive" align-title="center">
         
-        <ion-nav-title>
+        <!--<ion-nav-title>
       Create Trip: 1/4- Select a Route
-    </ion-nav-title>
+    </ion-nav-title>-->
     
     <ion-nav-back-button>
     </ion-nav-back-button>
 </ion-nav-bar>
 
 
-<ion-content class="padding has-header">
+<ion-content class="has-header">
+
   
-<div class="card">
-  <div class="item">
-  <p>Available Routes ({{routes.length}})</p>
-</div>
-</div>
+  <div class="card">
+    <div class="item">
+    <p>Available Routes ({{routes.length}})</p>
 
-  <ion-list>
-  <ion-item ng-repeat="route in routes">
-     {{route.RouteName}}
-  </ion-item>
-</ion-list>
-    
-     <!--<div class="list">
+    <p>Selected Value: {{ data.selectedRoute }}</p>
 
-  <div class="item item">
-    <b>Available routes ({{ response.routesCount }})</B>
+  </div>
   </div>
 
- <ion-list >
-        <ion-item ng-repeat="route in response.Routes">
-          {{route.RouteName }}
-        </ion-item>
 
-      </ion-list>
-  
-  
+  <ion-radio ng-repeat="route in routes" ng-value="route" ng-model="data.selectedRoute">
+    {{ route.RouteName }}
+  </ion-radio>
 
-</div>-->
+
+  <!--<ion-list>
+  <ion-item ng-repeat="route in routes" >
+    <ion-radio ng-value="route" ng-model="selctedRoute" class="no-padding">
+      {{route.RouteName}}
+    </ion-radio>     
+  </ion-item>
+</ion-list>-->
+    
+
+
     
 </ion-content>
 
 <div class="bar bar-footer bar-stable" style="text-align:center;">
-  <button class="button  button-block button-clear nextButton " ng-click="nextButtonClick()">
+  <button class="button  button-block button-clear nextButton" ng-disabled="!data.selectedRoute"  ng-click="nextButtonClick()">
     Next >
   </button>
 </div>

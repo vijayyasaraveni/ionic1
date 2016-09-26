@@ -36,7 +36,9 @@ angular.module('starter.controllers', [])
 
   $scope.routes = [];
   $scope.routesCount = 0;
-  
+  $scope.data = {
+    selectedRoute: ''
+  };
   loadRemoteData();
 
 
@@ -58,15 +60,27 @@ angular.module('starter.controllers', [])
 }
   
   $scope.nextButtonClick = function(){
-    $state.go('selectVehicle');
+
+    alert("i am here");
+
+    console.log("selected value :::::::: "+$scope.data.selectedRoute.RouteId);
+
+    $state.go('selectVehicle', {'RouteId': $scope.data.selectedRoute.RouteId});
   }
   
 })
 
-.controller('vehicleListController', function($scope, $state, $location,$http, $ionicLoading, vehicleService){
+.controller('vehicleListController', function($scope, $state, $location,$http, $ionicLoading, $stateParams, vehicleService){
   
+  console.log("selected routeid ::::: "+$stateParams.RouteId);
+
   $scope.vehicles = [];
   $scope.vehiclesCount = 0;
+  $scope.vehicleListEmpty = false;
+
+  $scope.data = {
+    selectedVehicle: null
+  }
 
   getVehicleList();
 
@@ -75,16 +89,30 @@ angular.module('starter.controllers', [])
     vehicleService.getVehicleList().then(
       function( response ) {
           console.log("response from >>> "+response);
-          $scope.vehicles = response.Vechicles;
-          // $scope.vehiclesCount = $scope.vehicles.length;
+          applyRemoteVehicleList(response);
           $ionicLoading.hide();
       });
   }
   
-  
+  function applyRemoteVehicleList(response){
+      $scope.vehicles = response.Vechicles;
+
+      if($scope.vehicles.length > 0){
+        $scope.vehicleListEmpty = true;
+      }else{
+        $scope.vehicleListEmpty = false;
+      }
+
+      // $scope.vehiclesCount = $scope.vehicles.length;
+  }
   
   $scope.addVehicle = function(){
-    $state.go('addVehicle');
+
+    console.log("selected Vehicle :::::::: "+$scope.data.selectedVehicle.VehicleId);
+
+    $state.go('deviceList', {'routeId': $stateParams.RouteId, 'vehicleId': $scope.data.selectedVehicle.VehicleId});
+
+    //$state.go('addVehicle');
   }
   
 })
@@ -95,7 +123,44 @@ angular.module('starter.controllers', [])
   }
 })
 
-.controller('deviceListController', function($state, $location, $scope){
+.controller('deviceListController', function($state, $stateParams, $http, $ionicLoading, $location, $scope, deviceService){
+  
+  console.log("routeId :"+$stateParams.routeId);
+  console.log("vehicleId :"+$stateParams.vehicleId);
+
+
+  $scope.devices = [];
+  $scope.deviceCount = 0;
+  $scope.deviceListEmpty = false;
+
+  $scope.data = {
+    selectedDevice: null
+  }
+
+  getDeviceList();
+
+  function getDeviceList() {
+    $ionicLoading.show();
+    deviceService.getDeviceList().then(
+      function( response ) {
+          console.log("response from >>> "+response);
+          applyRemoteDeviceList(response);
+          $ionicLoading.hide();
+      });
+  }
+
+function applyRemoteDeviceList(response){
+      $scope.devices = response.Devices;
+
+      // if($scope.devices.length > 0){
+      //   $scope.deviceListEmpty = true;
+      // }else{
+      //   $scope.deviceListEmpty = false;
+      // }
+  }
+
+
+  
   $scope.nextButtonClick = function(){
     $state.go('tripDetails');
   }
