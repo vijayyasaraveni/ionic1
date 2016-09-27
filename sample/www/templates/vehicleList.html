@@ -20,7 +20,12 @@
     </div>
 
     <ion-radio ng-repeat="vehicle in vehicles" ng-value="vehicle" ng-model="data.selectedVehicle">
-    {{ vehicle["1"] }}
+     <div>
+        <span>Truck - {{vehicle["VehicleRegistration"]}} </span>
+     </div>
+     <div>
+        <span>{{vehicle["VendorName"]}}</span>
+     </div>
   </ion-radio>
 
     <!--<ion-list>

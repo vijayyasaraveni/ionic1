@@ -16,9 +16,9 @@
     
     
     
-    <ion-content>
+    <ion-content class="has-header">
         
- <div class="col">
+ <!--<div class="col">
     <b style="     position: relative;
     left: 9px;
     top: -20px;
@@ -29,88 +29,35 @@
     float: right;
     left: -31px;
     top: -18px;">
-  </div>
- 
- 
-<div class="list">
+  </div>-->
 
-    <a class="item item-avatar" href="#" >
-     
-	    <img src="images/icons.png" style="border-radius:0px;" >
-		<span class="left_border">
-      <h2>Tempo - KA 05 AB 4533</h2>
-      <p style=" font-size: 12px;
-    margin-left: 2px;">VRL Logistics, Capacity: 1 ton</p></span>
-	  
-	  <img src="images/Editing-Pencil-icon.png" style="float: right;
-    margin-top: 6px;
-    width: 24px;
-    margin-right: 2px;
-">
-    </a>
-	<style>
-.left_border{
-     border-right: 1px solid #abc;
-    position: absolute;
-    width:215px;
-}
-	
-	</style>
+        <div class="card">
+            <div class="item">
+                <span>Available Vehicles ({{vehicles.length}})</span>
 
+                <div style="float:right;">
+                    <button class="button" ng-click="addVehicle()">
+                    <i class="icon ion-plus-circled"></i>
+                </button>
+                </div>
+
+                
+
+            </div>
+        </div>
  
-    <a class="item item-avatar" href="#" >
-     
-	    <img src="images/logo.png" style="border-radius:0px;" >
-		<span class="left_border">
-      <h2> Truck - KA 01 WA 9141</h2>
-      <p style=" font-size: 12px;
-    margin-left: 2px;"> Agrawal Logistics, Capacity: 2 ton</p></span>
-	  
-	  <img src="images/Editing-Pencil-icon.png" style="float: right;
-    margin-top: 6px;
-    width: 24px;
-    margin-right: 7px;
-">
-    </a>
-	
-	 
-	 
-	 
-    <a class="item item-avatar" href="#" >
-     
-	    <img src="images/icons.png" style="border-radius:0px;" >
-		<span class="left_border">
-      <h2> Truck - MH 05 G 134</h2>
-      <p style=" font-size: 12px;
-    margin-left: 2px;">VRL Logistics, Capacity: 1 ton</p></span>
-	  
-	  <img src="images/Editing-Pencil-icon.png" style="float: right;
-    margin-top: 6px;
-    width: 24px;
-    margin-right: 7px;
-">
-    </a>
-	
-	 
-	 
-	 
-    <a class="item item-avatar" href="#" >
-     
-	    <img src="images/logo.png" style="border-radius:0px;" >
-		<span class="left_border">
-      <h2>Truck - AP 17 R 1385</h2>
-      <p style=" font-size: 12px;
-    margin-left: 2px;"> Agrawal Logistics, Capacity: 2 ton</p></span>
-	  
-	  <img src="images/Editing-Pencil-icon.png" style="float: right;
-    margin-top: 6px;
-    width: 24px;
-    margin-right: 7px;
-">
-    </a>
-</div>
-        
-        
+ 
+        <ion-list>
+            <ion-item ng-repeat="vehicle in vehicles" ng-value="vehicle" ng-model="data.selectedVehicle">
+                <div>
+                    <span>Truck - {{vehicle["VehicleRegistration"]}} </span>
+                </div>
+                <div>
+                    <span>{{vehicle["VendorName"]}}</span>
+                </div>
+
+            </ion-item>
+        </ion-list>     
     </ion-content>
     
 </ion-view>

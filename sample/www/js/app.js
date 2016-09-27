@@ -39,7 +39,8 @@ angular.module('starter', ['ionic', 'starter.controllers', 'ui.router', 'starter
   
   .state('createTrip', {
     url : '/createTrip',
-    templateUrl : 'templates/createTrip.html'
+    templateUrl : 'templates/createTrip.html',
+    controller: 'createTripController'
   })
   
   .state('selectVehicle', {
