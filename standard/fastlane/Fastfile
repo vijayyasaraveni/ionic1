@@ -7,7 +7,9 @@ def build_app_alpha
      workspace: project_workspace,
      scheme:project_scheme
     )
-    
+    sigh(
+      provisioning_name: "Equinix ECP Mobile Alpha Distribution"
+    )
     
     gym(
       workspace: project_workspace,
