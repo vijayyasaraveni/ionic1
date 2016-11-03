@@ -1,7 +1,7 @@
 default_platform :ios
 
 def build_app_alpha
-    project_workspace = 'app.xcodeproj'
+    project_workspace = 'app.xcworkspace'
     xcclean(
      workspace: project_workspace,
      scheme:project_scheme
