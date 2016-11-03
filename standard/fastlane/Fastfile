@@ -2,14 +2,16 @@ default_platform :ios
 
 def build_app_alpha
     project_workspace = 'app.xcworkspace'
-
+    project_scheme = 'app'
     xcclean(
-     workspace: project_workspace
+     workspace: project_workspace,
+     scheme:project_scheme
     )
     
     
     gym(
       workspace: project_workspace,
+      scheme: project_scheme,
       clean: true,
     )
   end
