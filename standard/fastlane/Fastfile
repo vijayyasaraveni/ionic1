@@ -42,7 +42,6 @@ def build_app_alpha
 platform :ios do
    ############################## TestFlight Beta Lane ##############################
   lane :alpha do
-    cocoapods
     check_git
     build_app_alpha
     # Make sure our directory is clean, except for changes Fastlane has made
