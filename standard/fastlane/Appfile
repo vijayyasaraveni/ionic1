@@ -1,0 +1,23 @@
+
+apple_id "ajasingh@ap.equinix.com" # Your Apple email address
+
+team_id "AQY5592JZC"  # Developer Portal Team ID
+
+
+
+# Use different bundle identifiers per lane
+
+for_lane 'ios alpha' do
+  app_identifier "com.equinix.ecpPhoneAppAlpha" # The bundle identifier of your app
+end
+
+for_lane 'ios beta' do
+ app_identifier "com.equinix.ecpPhoneAppBeta" # The bundle identifier of your app
+end
+
+for_lane 'ios prod' do
+  app_identifier "com.equinix.ecpPhoneAppDistribution" # The bundle identifier of your app
+end
+
+# you can even provide different app identifiers, Apple IDs and team names per lane:
+# More information: https://github.com/fastlane/fastlane/blob/master/docs/Appfile.md

@@ -1,0 +1,54 @@
+default_platform :ios
+
+def build_app_alpha
+    project_workspace = 'app.xcodeproj'
+    xcclean(
+     workspace: project_workspace,
+     scheme:project_scheme
+    )
+    
+    
+    gym(
+      workspace: project_workspace,
+      scheme: project_scheme,
+      clean: true,
+    )
+  end
+
+
+
+  ############################## CheckGitBranch ##############################
+ def check_git
+  ensure_git_branch branch: "master" 
+  ensure_git_status_clean
+ end
+ 
+ ############################## Clean Git Branch ##############################
+ def clean_git
+   clean_build_artifacts
+   build_number = get_build_number(xcodeproj: "Equinix-ECP.xcodeproj")
+   version_number = get_version_number(xcodeproj: "Equinix-ECP.xcodeproj")
+   commit_version_bump message: "Deploying version #{version_number} #{build_number}."
+   push_to_git_remote
+ end
+
+ ############################## PRE ##############################
+
+  before_all do
+   ENV["DELIVER_ITMSTRANSPORTER_ADDITIONAL_UPLOAD_PARAMETERS"] = "-t DAV"
+  end
+
+
+platform :ios do
+   ############################## TestFlight Beta Lane ##############################
+  lane :alpha do
+    cocoapods
+    check_git
+    build_app_alpha
+    # Make sure our directory is clean, except for changes Fastlane has made
+  end
+
+end
+
+
+
