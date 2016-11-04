@@ -7,6 +7,9 @@ def build_app_alpha
      workspace: project_workspace,
      scheme:project_scheme
     )
+	
+  scan 
+	
     sigh(
       provisioning_name: "Equinix ECP Mobile Alpha Distribution"
     )
